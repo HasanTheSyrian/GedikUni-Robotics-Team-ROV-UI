@@ -30,15 +30,20 @@
  ```
 
  6- To make sure everything works, click on "Watch Sass".
- Then, go to `./index.html` and try removing one of the Tailwind classes `<... class="underline" ...>`. If the application changes it means TailwindCSS works. 
+ Then, go to `./index.html` and try removing one of the Tailwind classes, `<... class="underline" ...>`, for example. If the application changes it means TailwindCSS works. 
  
  If you do not see "Watch Sass" go to one of the Sass files at `/Project/Styling/` and it should appear in the bottom corner.
  
  Next, go to `./Project/Styling/index.scss` and make some changes, if the application changes that means SASS/SCSS works.
  
- This is a temporary use of the Sass extention, I will implement the Sass CLI later.
- ---
+  ---
  
- When you run `npm start` you're compiling the program and creating a directory called `public` which has the finilized css the browser uses after Sass and TailwindCSS finish compiling.
+ When you run `npm start` you're compiling the program and creating a directory called `public` which has the finilized css the browser uses after Sass and TailwindCSS  finish compiling.
+ 
+ The use of the Sass extention is temporary, I will implement the Sass CLI at a later time.
+ 
+
+ 
+
  
  
