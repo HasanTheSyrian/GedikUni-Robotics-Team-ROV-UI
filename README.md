@@ -1,7 +1,7 @@
 # GedikUni-Robotics-Team-ROV-UI
 
 
-### A repository for one of Gedik Univeristy's robotics teams' website. 
+### A repository for one of Gedik Univeristy's robotics teams' ROV interface. 
  
  ---
  
