@@ -1,0 +1,10 @@
+h1 {
+  background-color: green;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: rgb(63, 63, 63);
+}/*# sourceMappingURL=index.css.map */
