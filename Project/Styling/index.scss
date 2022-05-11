@@ -1,0 +1,11 @@
+@import "_mediaqueries";
+@import "_variables";
+@import "_mixins";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(63, 63, 63);
+}
