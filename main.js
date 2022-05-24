@@ -1,3 +1,8 @@
+/* eslint-disable no-empty */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
+//! electron squirell startup is only needed for windows
+
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
@@ -11,7 +16,7 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: __dirname + "./Project/Pictures/logo.ico",
+    // icon: __dirname + "./Project/Pictures/logo.ico",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
