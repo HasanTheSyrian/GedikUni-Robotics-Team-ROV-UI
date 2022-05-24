@@ -33,6 +33,7 @@
       "category": "public.app-category.developer-tools"
     },
     "win": {
+      "target": "nsis",
       "icon": "./Project/Pictures/Icons/logo.ico"
     }
   }
