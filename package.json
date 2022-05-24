@@ -13,7 +13,7 @@
   "files": [
     "./Project/Pictures/*"
   ],
-  "dependencies": {    
+  "dependencies": {
     "electron-reloader": "^1.2.3"
   },
   "devDependencies": {
@@ -29,11 +29,11 @@
     "appId": "com.gedikuniui.app",
     "productName": "GedikUniROVUI",
     "mac": {
-      "icon": "./Project/Pictures/logo.icns",
+      "icon": "./Project/Pictures/Icons/logo.icns",
       "category": "public.app-category.developer-tools"
     },
     "win": {
-      "icon": "./Project/Pictures/logo.ico"
+      "icon": "./Project/Pictures/Icons/logo.ico"
     }
   }
 }
