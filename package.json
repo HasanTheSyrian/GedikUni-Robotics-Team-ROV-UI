@@ -4,6 +4,7 @@
   "description": "Interface for Gedik Univeristy's ROV",
   "main": "main.js",
   "scripts": {
+    "start": "concurrently \"electron .\" \"npx tailwindcss -i ./Project/Styling/index.css -o ./public/index.css --watch\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
