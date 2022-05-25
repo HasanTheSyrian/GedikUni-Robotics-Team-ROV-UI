@@ -1,7 +1,7 @@
 {
   "name": "gedikuniui",
   "version": "1.0.0",
-  "description": "Interface for Gedik Univeristy's ROV",
+  "description": "An Interface for Gedik Univeristy's ROV",
   "main": "main.js",
   "scripts": {
     "start": "concurrently \"electron .\" \"npx tailwindcss -i ./Project/Styling/index.css -o ./public/index.css --watch\"",
@@ -28,7 +28,7 @@
   },
   "build": {
     "appId": "com.gedikuniui.app",
-    "productName": "GedikUniROVUI",
+    "productName": "Gedik Uni ROV Interface",
     "mac": {
       "category": "public.app-category.developer-tools",
       "icon": "./Project/Pictures/Icons/logo.icns"
