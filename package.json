@@ -1,30 +1,46 @@
 {
-  "name": "GedikUniROVUI",
+  "name": "gedikuniui",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Interface for Gedik Univeristy's ROV",
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"electron .\" \"npx tailwindcss -i ./Project/Styling/index.css -o ./public/index.css --watch\""
+    "start": "concurrently \"electron .\" \"npx tailwindcss -i ./Project/Styling/index.css -o ./public/index.css --watch\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/electron/GedikUniROVUI",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
   "author": "GitHub",
   "license": "CC0-1.0",
+  "files": [
+    "./Project/Pictures/*"
+  ],
   "dependencies": {
-    "electron": "^18.2.4",
     "electron-reloader": "^1.2.3"
   },
   "devDependencies": {
+    "electron": "^19.0.0",
     "concurrently": "^7.2.1",
+    "electron-builder": "^23.0.3",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "tailwindcss": "^3.0.24"
+  },
+  "build": {
+    "appId": "com.gedikuniui.app",
+    "productName": "GedikUniROVUI",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "./Project/Pictures/Icons/logo.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "./Project/Pictures/Icons/logo.ico"
+    },
+    "linux": {
+      "target": "deb",
+      "category": "Development",
+      "icon": "./Project/Pictures/Icons/logo.png"
+    }
   }
 }
