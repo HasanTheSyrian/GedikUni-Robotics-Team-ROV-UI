@@ -17,7 +17,7 @@
     "electron-reloader": "^1.2.3"
   },
   "devDependencies": {
-    "electron": "^18.2.4",
+    "electron": "^19.0.0",
     "concurrently": "^7.2.1",
     "electron-builder": "^23.0.3",
     "eslint": "^8.16.0",
@@ -29,12 +29,17 @@
     "appId": "com.gedikuniui.app",
     "productName": "GedikUniROVUI",
     "mac": {
-      "icon": "./Project/Pictures/Icons/logo.icns",
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "icon": "./Project/Pictures/Icons/logo.icns"
     },
     "win": {
       "target": "nsis",
       "icon": "./Project/Pictures/Icons/logo.ico"
+    },
+    "linux": {
+      "target": "deb",
+      "category": "Development",
+      "icon": "./Project/Pictures/Icons/logo.png"
     }
   }
 }
