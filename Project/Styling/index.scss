@@ -6,6 +6,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Montserrat";
+  src: "./Project/Fonts/Montserrat.ttf";
+}
+
+html{
+  height: 100vh;
+}
+
 body {
-  background-color: rgb(237, 0, 0);
+  background-color: black;
+  height: 100%;
+}
+
+body header {
+  @include flexCenter(flex-start, center);
+  height: auto;
+  width: 100vw;
+
+  h1 {
+    color: white;
+    font-family: Montserrat;
+  }
+
+  #iconsMiddle {
+    display: flex;
+    justify-self: center !important;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+
+  #logo {
+    width: 50px;
+    margin: 10px;
+  }
 }
