@@ -19,7 +19,14 @@ function handleMin() {
 
 function handleMax() {
   const focus = BrowserWindow.getFocusedWindow();
-  return focus.isMaximized() ? focus.unmaximize() : focus.maximize();
+
+  if (process.platform !== "darwin") {
+    focus.isMaximized() ? focus.unmaximize() : focus.maximize();
+  } else {
+    focus.isFullscreen() ? focus.setFullscreen(false) : focus.setFullScreen(true);
+  }
+
+  // return
 }
 
 // function handleMax() {
@@ -41,8 +48,9 @@ function createWindow() {
   });
 
   //  remove traffic light icons on Darwin
-  mainWindow.setWindowButtonVisibility(false);
-
+  if (process.platform === "darwin") {
+    mainWindow.setWindowButtonVisibility(false);
+  }
   // and load the index.html of the app.
   mainWindow.loadFile("index.html");
 
