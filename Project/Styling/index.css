@@ -44,19 +44,16 @@ body {
 #min:hover rect,
 #min {
   fill: #1aff91;
-  cursor: pointer;
 }
 
 #max:hover path,
 #max {
   fill: #1a9fff;
-  cursor: pointer;
 }
 
 #exit:hover path,
 #exit {
   stroke: red;
-  cursor: pointer;
 }
 
 body header {
