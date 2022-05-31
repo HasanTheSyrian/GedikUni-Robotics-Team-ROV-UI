@@ -3,15 +3,18 @@
 @import "_mixins";
 
 @tailwind base;
-@tailwind components;
+// @tailwind components;
 @tailwind utilities;
 
 @font-face {
   font-family: "Montserrat";
-  src: "./Project/Fonts/Montserrat.ttf";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot") format("embedded-opentype"), /* IE6-IE8 */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
 
-html{
+html {
   height: 100vh;
 }
 
@@ -20,28 +23,102 @@ body {
   height: 100%;
 }
 
+#titleBar {
+  -webkit-app-region: drag;
+  width: 100vw;
+  height: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+  // z-index: -1;
+  // padding: 5px;
+  // padding-bottom: 5px;
+  // background-color: green;
+
+  & * {
+    -webkit-app-region: no-drag;
+  }
+
+  & svg {
+    width: 10px;
+
+    // & button{
+    //   height: 0;
+    //   width: 0;
+    // }
+    &:nth-child(2) {
+      // background-color: red;
+      margin: 0 10px 0 10px;
+      width: 10px;
+    }
+    &:nth-child(3) {
+      // background-color: red;
+      margin-right: 10px;
+    }
+  }
+}
+
+#min:hover rect,
+#min {
+  fill: #1aff91;
+  cursor: pointer;
+}
+
+#max:hover path,
+#max {
+  fill: #1a9fff;
+  cursor: pointer;
+}
+
+#exit:hover path,
+#exit {
+  stroke: red;
+  cursor: pointer;
+}
+
 body header {
-  @include flexCenter(flex-start, center);
+  @include flexCenter(space-between, center);
+  position: relative;
   height: auto;
   width: 100vw;
+  padding: 10px;
+
+  & #logoText {
+    display: flex;
+    align-items: center;
+  }
 
   h1 {
     color: white;
+    font-size: 25px;
     font-family: Montserrat;
   }
 
-  #iconsMiddle {
-    display: flex;
-    justify-self: center !important;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-
-    
-  }
-
   #logo {
-    width: 50px;
-    margin: 10px;
+    width: 70px;
+    margin-right: 10px;
   }
+}
+
+#iconsMiddle {
+  display: flex;
+  position: absolute;
+  // width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  & img:nth-child(2) {
+    margin: 0 10px 0 10px;
+  }
+}
+
+hr {
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 20px);
+
+  left: 50%;
+  transform: translateX(-50%);
 }

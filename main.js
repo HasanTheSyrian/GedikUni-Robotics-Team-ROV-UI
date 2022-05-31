@@ -4,35 +4,58 @@
 //! electron squirell startup is only needed for windows
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require("electron");
+const { app, ipcMain, BrowserWindow } = require("electron");
+
+// const focus = BrowserWindow.getFocusedWindow();
 const path = require("path");
 
 try {
   require("electron-reloader")(module);
 } catch (_) {}
 
+function handleMin() {
+  BrowserWindow.getFocusedWindow().minimize();
+}
+
+function handleMax() {
+  const focus = BrowserWindow.getFocusedWindow();
+  return focus.isMaximized() ? focus.unmaximize() : focus.maximize();
+}
+
+// function handleMax() {
+//   BrowserWindow.getFocusedWindow().maximize();
+// }
+
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width:          1920,
-    height:         1080,
-    // icon: __dirname + "./Project/Pictures/logo.ico",
+    width: 1270,
+    height: 720,
+    resizable: false,
+    // maximize: true,
+    titleBarStyle: "hidden",
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
+  //  remove traffic light icons on Darwin
+  mainWindow.setWindowButtonVisibility(false);
+
   // and load the index.html of the app.
   mainWindow.loadFile("index.html");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  ipcMain.on("minimize", handleMin);
+  ipcMain.on("maximize", handleMax);
   createWindow();
 
   app.on("activate", () => {
