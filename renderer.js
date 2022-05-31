@@ -8,6 +8,16 @@
 const exitbtn = document.getElementById("exit");
 const maxbtn = document.getElementById("max");
 const minbtn = document.getElementById("min");
+const test = document.querySelector("body");
+
+// navigator.platform is deprecated but the rest are not
+function isMac() {
+  return navigator.userAgentData && navigator.userAgentData.platform ? navigator.userAgentData.platform === "macOS" : /Mac|iP/.test(navigator.platform);
+}
+
+if (isMac() === true) {
+  test.style.display = "none";
+}
 
 exitbtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -25,3 +35,5 @@ minbtn.addEventListener("click", (e) => {
   e.preventDefault();
   window.electronAPI.minimize();
 });
+
+console.log(isMac());

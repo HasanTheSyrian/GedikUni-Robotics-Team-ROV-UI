@@ -23,7 +23,7 @@ function handleMax() {
   if (process.platform !== "darwin") {
     focus.isMaximized() ? focus.unmaximize() : focus.maximize();
   } else {
-    focus.isFullscreen() ? focus.setFullscreen(false) : focus.setFullScreen(true);
+    focus.isFullScreen() ? focus.setFullScreen(false) : focus.setFullScreen(true);
   }
 
   // return
