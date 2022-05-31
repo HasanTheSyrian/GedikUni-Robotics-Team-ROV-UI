@@ -8,7 +8,7 @@
 const exitbtn = document.getElementById("exit");
 const maxbtn = document.getElementById("max");
 const minbtn = document.getElementById("min");
-const test = document.querySelector("body");
+const bar = document.getElementById("titleBar");
 
 // navigator.platform is deprecated but the rest are not
 function isMac() {
@@ -16,7 +16,11 @@ function isMac() {
 }
 
 if (isMac() === true) {
-  test.style.display = "none";
+  // bar.style.justifyContent = "flex-start";
+  bar.style.flexDirection = "row-reverse";
+  bar.style.marginRight = "0";
+  bar.style.marginLeft = "10px";
+  exitbtn.style.marginRight = "0px";
 }
 
 exitbtn.addEventListener("click", (e) => {
@@ -35,5 +39,3 @@ minbtn.addEventListener("click", (e) => {
   e.preventDefault();
   window.electronAPI.minimize();
 });
-
-console.log(isMac());
