@@ -16,11 +16,12 @@ function isMac() {
 }
 
 if (isMac() === true) {
-  // bar.style.justifyContent = "flex-start";
   bar.style.flexDirection = "row-reverse";
-  bar.style.marginRight = "0";
   bar.style.marginLeft = "10px";
   exitbtn.style.marginRight = "0px";
+  maxbtn.style.order = "-1";
+  maxbtn.style.margin = "0";
+  minbtn.style.margin = "0 10px 0 10px";
 }
 
 exitbtn.addEventListener("click", (e) => {

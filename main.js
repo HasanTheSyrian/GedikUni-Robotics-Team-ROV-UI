@@ -25,13 +25,7 @@ function handleMax() {
   } else {
     focus.isFullScreen() ? focus.setFullScreen(false) : focus.setFullScreen(true);
   }
-
-  // return
 }
-
-// function handleMax() {
-//   BrowserWindow.getFocusedWindow().maximize();
-// }
 
 function createWindow() {
   // Create the browser window.
