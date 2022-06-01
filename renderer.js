@@ -15,10 +15,12 @@ function isMac() {
   return navigator.userAgentData && navigator.userAgentData.platform ? navigator.userAgentData.platform === "macOS" : /Mac|iP/.test(navigator.platform);
 }
 
+// reverse titlebar icons on mac
+
 if (isMac() === true) {
   bar.style.flexDirection = "row-reverse";
-  bar.style.marginLeft = "10px";
   exitbtn.style.marginRight = "0px";
+  exitbtn.style.marginLeft = "10px";
   maxbtn.style.order = "-1";
   maxbtn.style.margin = "0";
   minbtn.style.margin = "0 10px 0 10px";

@@ -30,7 +30,7 @@ function handleMax() {
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1270,
+    width: 1280,
     height: 720,
     resizable: false,
     // maximize: true,

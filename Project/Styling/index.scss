@@ -19,6 +19,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: black;
   height: 100%;
 }
@@ -118,4 +120,10 @@ hr {
 
   left: 50%;
   transform: translateX(-50%);
+}
+
+#container {
+  width: 900px;
+  // height: 100%;
+  background-color: white;
 }
