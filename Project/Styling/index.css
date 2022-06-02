@@ -1,10 +1,116 @@
-h1 {
-  background-color: green;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot") format("embedded-opentype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff2") format("woff2"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff") format("woff"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.ttf") format("truetype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.svg#Montserrat") format("svg");
+  /* Legacy iOS */
+}
+html {
+  height: 100vh;
+}
+
 body {
-  background-color: rgb(237, 0, 0);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: black;
+  height: 100%;
+}
+
+#titleBar {
+  -webkit-app-region: drag;
+  width: 100vw;
+  height: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+}
+#titleBar * {
+  -webkit-app-region: no-drag;
+}
+#titleBar svg {
+  width: 10px;
+}
+#titleBar svg:nth-child(2) {
+  margin: 0 10px 0 10px;
+  width: 10px;
+}
+#titleBar svg:nth-child(3) {
+  margin-right: 10px;
+}
+
+#min:hover rect,
+#min {
+  fill: #1aff91;
+}
+
+#max:hover path,
+#max {
+  fill: #1a9fff;
+}
+
+#exit:hover path,
+#exit {
+  stroke: red;
+}
+
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: auto;
+  width: 100vw;
+  padding: 10px;
+}
+body header #logoText {
+  display: flex;
+  align-items: center;
+}
+body header h1 {
+  color: white;
+  font-size: 25px;
+  font-family: Montserrat;
+}
+body header #logo {
+  width: 70px;
+  margin-right: 10px;
+}
+
+#iconsMiddle {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#iconsMiddle img:nth-child(2) {
+  margin: 0 10px 0 10px;
+}
+
+hr {
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#container {
+  flex-grow: 1;
+  width: 100%;
+  padding: 5%;
+  background-color: white;
+}
+#container #cam {
+  align-self: center;
+  width: 50%;
+  aspect-ratio: 16/9;
+  background-color: green;
 }/*# sourceMappingURL=index.css.map */

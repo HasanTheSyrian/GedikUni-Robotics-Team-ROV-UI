@@ -2,20 +2,85 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
-    
+    <script defer src="./renderer.js"></script>    
     <link href="./public/index.css" rel="stylesheet">
 
-
-    <title>Hello World!</title>
   </head>
 
   <body>
 
-    <h1 class="font-bold">Hello World, from Gedik University's Robotics Team!</h1>
+    <div id="titleBar">
+
+      <svg id="min" width="28" height="9" viewBox="0 0 28 9" fill="none" xmlns="http://www.w3.org/2000/svg">      
+        <rect width="28" height="9" fill="white"/>
+      </svg>
+        
+
+      <svg id="max" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <path class="path" d="M0 1.74846e-07H28V9H0V1.74846e-07Z" fill="white"/>
+        <path class="path" d="M0 24H28V28H0V24Z" fill="white"/>
+        <path class="path" d="M4 1.74846e-07L4 28H0V1.74846e-07H4Z" fill="white"/>
+        <path class="path" d="M28 1.74846e-07V28H24L24 0L28 1.74846e-07Z" fill="white"/>
+        
+      </svg>
+
+
+      <svg id="exit" width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="path" d="M2.12134 2.87869L26.1213 26.8787M26.1213 3.12133L2.12134 27.1213" stroke="white" stroke-width="6"/>
+      </svg>
+
+     <!-- <embed id="min" src="./Project/Pictures/TitleBar/Minimize.svg" alt="min"> 
+     <embed id="max" src="./Project/Pictures/TitleBar/Maximize.svg" alt="max"> 
+    <embed id="exit" src="./Project/Pictures/TitleBar/Exit.svg" alt="exit">      -->
+    </div>
+
+    <header>
+
+      <div id="logoText">
+        <img id="logo" src="./Project/Pictures/logo.svg" alt="logo">
+        <h1>Gedik Robotics</h1>
+      </div>  
+
+      <div id="iconsMiddle">
+        
+        <img src="./Project/Pictures/record.svg"> </img>
+        <img src="./Project/Pictures/online.svg"> </img>
+        <img src="./Project/Pictures/help.svg"> </img>
+
+      </div>
+
+      <h1>4:39 PM</h1>
+
+      <hr>
+
+    </header>
+
+
+    <div id="container">
+
+      <div id="leftContainer">
+
+    </div>
+
+      <div id="middleContainer">
+
+        <div id="cam"></div>
+
+      </div>
+
+      <div id="rightContainer">
+
+      </div>
+
+
+    </div>
+
+    <!-- <h1 class="font-bold">Hello World, from Gedik University's Robotics Team!</h1> -->
 
     <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+
+    <!-- <button id="test" style="color: white">HELLLLLLLO</button> -->
   </body>
 </html>
