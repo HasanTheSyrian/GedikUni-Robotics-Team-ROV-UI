@@ -3,7 +3,7 @@
 @import "_mixins";
 
 @tailwind base;
-// @tailwind components;
+@tailwind components;
 @tailwind utilities;
 
 @font-face {
@@ -21,6 +21,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: black;
   height: 100%;
 }
@@ -123,7 +124,15 @@ hr {
 }
 
 #container {
-  width: 900px;
-  // height: 100%;
+  flex-grow: 1;
+  width: 100%;
+  padding: 5%;
   background-color: white;
+
+  & #cam {
+    align-self: center;
+    width: 50%;
+    aspect-ratio: 16/9;
+    background-color: green;
+  }
 }
