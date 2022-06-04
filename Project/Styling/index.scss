@@ -26,6 +26,13 @@ body {
   height: 100%;
 }
 
+body #container #leftContainer,
+#middleContainer,
+#camContainer,
+#rightContainer {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 #titleBar {
   -webkit-app-region: drag;
   width: 100vw;
@@ -34,10 +41,6 @@ body {
   justify-content: flex-end;
   align-items: center;
   margin-right: 5px;
-  // z-index: -1;
-  // padding: 5px;
-  // padding-bottom: 5px;
-  // background-color: green;
 
   & * {
     -webkit-app-region: no-drag;
@@ -46,17 +49,11 @@ body {
   & svg {
     width: 10px;
 
-    // & button{
-    //   height: 0;
-    //   width: 0;
-    // }
     &:nth-child(2) {
-      // background-color: red;
       margin: 0 10px 0 10px;
       width: 10px;
     }
     &:nth-child(3) {
-      // background-color: red;
       margin-right: 10px;
     }
   }
@@ -104,7 +101,6 @@ body header {
 #iconsMiddle {
   display: flex;
   position: absolute;
-  // width: 70px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -124,15 +120,139 @@ hr {
 }
 
 #container {
+  .sensorText {
+    color: white;
+    font-family: Montserrat;
+    font-size: 20px;
+  }
   flex-grow: 1;
+  @include flexCenter(center, center);
+  flex-direction: row;
   width: 100%;
-  padding: 5%;
-  background-color: white;
+  padding: 1%;
+  background-color: black;
 
-  & #cam {
-    align-self: center;
+  & #leftContainer {
+    background-color: teal;
+    @include flexCenter(center, center);
+    gap: 50px;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    width: 25%;
+
+    & #outerDepth {
+      @include flexCenter(center, center);
+      flex-direction: column;
+
+      & #lowerText {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+
+      & #middleDepth {
+        @include flexCenter(center, center);
+
+        & #depth {
+          position: relative;
+          width: 90%;
+
+          & #sensorImg, #arrow {
+            opacity: 0.99;
+          }
+
+          & p {
+            position: absolute;
+            text-align: center;
+            color: white;
+            @include absoluteCenterX();
+            font-family: Montserrat;
+            bottom: 10%;
+          }
+
+          & #arrow {
+            position: absolute;
+            right: 50%;
+            top: 45.45%;
+
+            transform-origin: center right;
+            transform: rotate(0deg);
+
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 115px solid white;
+            width: 48%;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  svg #needle {
+    & .circle {
+      transform-origin: 29% 70%;
+    }
+    transform: rotate(20deg);
+  }
+
+  & #middleContainer {
+    @include flexCenter(space-evenly, center);
+    flex-direction: column;
     width: 50%;
-    aspect-ratio: 16/9;
-    background-color: green;
+    height: 100%;
+    background-color: pink;
+
+    & #camContainer {
+      display: flex;
+      flex-direction: column;
+      @include flexCenter(center, center);
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: green;
+
+      & #cam {
+        width: 90%;
+        aspect-ratio: 16/9;
+        background-color: white;
+      }
+
+      & #textContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        flex-direction: row;
+        gap: 20px;
+
+        & p {
+          font-size: 1.5rem;
+          font-family: Montserrat;
+          color: white;
+        }
+      }
+    }
+
+    & #sensorsContainer {
+      display: flex;
+      @include flexCenter(center, center);
+      align-self: flex-end;
+      width: 100%;
+      flex-direction: row;
+      gap: 20px;
+      & .sensors {
+        width: 30%;
+        aspect-ratio: 1/1;
+        background-color: red;
+      }
+    }
+  }
+
+  & #rightContainer {
+    background-color: blue;
+    width: 25%;
+
+    height: 100%;
   }
 }
