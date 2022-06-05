@@ -31,9 +31,6 @@
         <path class="path" d="M2.12134 2.87869L26.1213 26.8787M26.1213 3.12133L2.12134 27.1213" stroke="white" stroke-width="6"/>
       </svg>
 
-     <!-- <embed id="min" src="./Project/Pictures/TitleBar/Minimize.svg" alt="min"> 
-     <embed id="max" src="./Project/Pictures/TitleBar/Maximize.svg" alt="max"> 
-    <embed id="exit" src="./Project/Pictures/TitleBar/Exit.svg" alt="exit">      -->
     </div>
 
     <header>
@@ -43,12 +40,10 @@
         <h1>Gedik Robotics</h1>
       </div>  
 
-      <div id="iconsMiddle">
-        
+      <div id="iconsMiddle">        
         <img src="./Project/Pictures/record.svg"> </img>
         <img src="./Project/Pictures/online.svg"> </img>
         <img src="./Project/Pictures/help.svg"> </img>
-
       </div>
 
       <h1>4:39 PM</h1>
@@ -62,25 +57,75 @@
 
       <div id="leftContainer">
 
-    </div>
+        <div id="outerDepth">          
+          <p class="sensorText">
+            15
+          </p>
+
+          <div id="middleDepth">
+            <div id="depth">
+              <img id="sensorImg" src="./Project/Pictures/Depth Flattened.svg" alt="depth"></img>      
+              <div id="arrow"></div>
+              <p>7.5 bar</p>      
+            </div>              
+          </div>
+
+          <div id="lowerText">
+            <p class="sensorText">0</p>  
+            <p class="sensorText">30</p>
+          </div>
+        </div>
+
+        <div id="outerCompass">
+
+
+          <p id="upperCompassText" class="compassText"> test </p>
+            
+
+          <div id="middleCompass">
+            <p>test</p>
+            <div id="compass">
+              <img id="compassImg" src="./Project/Pictures/Compass Flattened.svg" alt="compass">
+              <p id="innerText"></p>
+            </div>
+            <p>test</p>
+          </div>
+
+
+          <p id="lowerCompassText" class="compassText"> test </p>
+
+          
+        </div>
+
+
+
+
+      </div>
 
       <div id="middleContainer">
 
-        <div id="cam"></div>
+        <div id="camContainer">
+
+          <div id="textContainer">
+            <p>Camera One</p>
+            <p>Camera Two</p>
+          </div>
+
+          <div id="cam"></div>
+        </div>
+
+        <div id="sensorsContainer">
+          <div class="sensors"></div>
+          <div class="sensors"></div>
+        </div>
 
       </div>
 
-      <div id="rightContainer">
 
-      </div>
+      
 
+      <div id="rightContainer"></div>
 
     </div>
-
-    <!-- <h1 class="font-bold">Hello World, from Gedik University's Robotics Team!</h1> -->
-
-    <!-- You can also require other files to run in this process -->
-
-    <!-- <button id="test" style="color: white">HELLLLLLLO</button> -->
   </body>
 </html>
