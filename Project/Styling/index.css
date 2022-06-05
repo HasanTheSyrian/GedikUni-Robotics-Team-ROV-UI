@@ -155,7 +155,8 @@ hr {
   position: relative;
   width: 90%;
 }
-#container #leftContainer #outerDepth #middleDepth #depth #sensorImg, #container #leftContainer #outerDepth #middleDepth #depth #arrow {
+#container #leftContainer #outerDepth #middleDepth #depth #sensorImg,
+#container #leftContainer #outerDepth #middleDepth #depth #arrow {
   opacity: 0.99;
 }
 #container #leftContainer #outerDepth #middleDepth #depth p {
@@ -178,6 +179,9 @@ hr {
   border-right: 115px solid white;
   width: 48%;
   height: 10px;
+}
+#container #leftContainer #outerCompass {
+  display: none;
 }
 #container svg #needle {
   transform: rotate(20deg);

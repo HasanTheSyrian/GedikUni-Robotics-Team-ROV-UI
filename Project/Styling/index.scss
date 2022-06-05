@@ -158,7 +158,8 @@ hr {
           position: relative;
           width: 90%;
 
-          & #sensorImg, #arrow {
+          & #sensorImg,
+          #arrow {
             opacity: 0.99;
           }
 
@@ -187,6 +188,10 @@ hr {
           }
         }
       }
+    }
+
+    & #outerCompass {
+      display: none;
     }
   }
 
