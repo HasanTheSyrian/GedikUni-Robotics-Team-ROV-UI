@@ -117,6 +117,7 @@ hr {
   flex-direction: row;
   width: 100%;
   padding: 1%;
+  padding-bottom: none;
   background-color: black;
 }
 #container .sensorText {
@@ -125,13 +126,13 @@ hr {
   font-size: 20px;
 }
 #container #leftContainer {
-  background-color: teal;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  background-color: teal;
+  gap: 20px;
   flex-direction: column;
-  padding: 20px;
+  padding-top: 10px;
   height: 100%;
   width: 25%;
 }
@@ -152,8 +153,8 @@ hr {
   align-items: center;
 }
 #container #leftContainer #outerDepth #middleDepth #depth {
+  width: 70%;
   position: relative;
-  width: 90%;
 }
 #container #leftContainer #outerDepth #middleDepth #depth #sensorImg,
 #container #leftContainer #outerDepth #middleDepth #depth #arrow {
@@ -163,6 +164,7 @@ hr {
   position: absolute;
   text-align: center;
   color: white;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-family: Montserrat;
@@ -181,7 +183,29 @@ hr {
   height: 10px;
 }
 #container #leftContainer #outerCompass {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: Montserrat;
+}
+#container #leftContainer #outerCompass #middleCompass {
+  width: 70%;
+}
+#container #leftContainer #outerCompass #compass {
+  position: relative;
+  margin: 5px;
+}
+#container #leftContainer #outerCompass #compass #compassImg {
+  opacity: 0.99;
+}
+#container #leftContainer #outerCompass #compass #innerText {
+  font-size: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 #container svg #needle {
   transform: rotate(20deg);
@@ -228,7 +252,6 @@ hr {
 }
 #container #middleContainer #sensorsContainer {
   display: flex;
-  display: flex;
   justify-content: center;
   align-items: center;
   align-self: flex-end;
@@ -239,10 +262,128 @@ hr {
 #container #middleContainer #sensorsContainer .sensors {
   width: 30%;
   aspect-ratio: 1/1;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container #middleContainer #sensorsContainer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: Montserrat;
+  color: white;
+  position: relative;
+}
+#container #middleContainer #sensorsContainer .container .centerText {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#container #middleContainer #sensorsContainer .container #batteryRing {
+  --percent: 90;
+}
+#container #middleContainer #sensorsContainer .container #tempRing {
+  --percent: 70;
+}
+#container #middleContainer #sensorsContainer .container .ring {
+  --diameter: 180;
+  --stroke-width: 10;
+  --pi: 3.1415;
+  --diameter-px: calc(var(--diameter) * 1px);
+  --radius: calc((var(--diameter) - var(--stroke-width)) / 2);
+  --radius-px: calc(var(--radius) * 1px);
+  --circumference: calc(var(--radius) * 2 * var(--pi));
+  --circumference-px: calc(var(--circumference) * 1px);
+  --offset: calc(var(--circumference) - var(--percent) / 100 * var(--circumference));
+  --offset-px: calc(var(--offset) * 1px);
+  --tw-ring-shadow: none !important;
+  width: var(--diameter-px);
+  height: var(--diameter-px);
+}
+#container #middleContainer #sensorsContainer .container .ring circle {
+  stroke-width: var(--stroke-width);
+  fill: transparent;
+  r: var(--radius-px);
+  cx: calc(var(--diameter-px) / 2);
+  cy: calc(var(--diameter-px) / 2);
+}
+#container #middleContainer #sensorsContainer .container .ring .progress {
+  stroke-dasharray: var(--circumference-px) var(--circumference-px);
+  stroke-dashoffset: var(--offset-px);
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.35s;
 }
 #container #rightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   background-color: blue;
   width: 25%;
   height: 100%;
+  padding-top: 10px;
+}
+#container #rightContainer .dotText {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 11px;
+  font-family: Montserrat;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  bottom: -20px;
+}
+#container #rightContainer .dot {
+  position: relative;
+  width: 30px;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 50%;
+}
+#container #rightContainer #motorFive,
+#container #rightContainer #motorSeven {
+  margin-left: 0 !important;
+}
+#container #rightContainer #motorSix,
+#container #rightContainer #motorEight {
+  margin-right: 0 !important;
+}
+#container #rightContainer #motorFour,
+#container #rightContainer #motorFive {
+  background-color: #1aff91;
+}
+#container #rightContainer #motorOne,
+#container #rightContainer #motorTwo,
+#container #rightContainer #motorSeven,
+#container #rightContainer #motorThree,
+#container #rightContainer #motorSix,
+#container #rightContainer #motorEight {
+  background-color: #ff0000;
+}
+#container #rightContainer #dotsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+#container #rightContainer #dotsContainer #middleDots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container #rightContainer #dotsContainer #middleDots .dotColumn .dot {
+  margin: 40px;
+}
+#container #rightContainer #dotsContainer .sideDots {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 85%;
 }/*# sourceMappingURL=index.css.map */
