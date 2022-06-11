@@ -130,14 +130,15 @@ hr {
   flex-direction: row;
   width: 100%;
   padding: 1%;
+  padding-bottom: none;
   background-color: black;
 
   & #leftContainer {
-    background-color: teal;
     @include flexCenter(center, center);
-    gap: 50px;
+    background-color: teal;
+    gap: 20px;
     flex-direction: column;
-    padding: 20px;
+    padding-top: 10px;
     height: 100%;
     width: 25%;
 
@@ -155,8 +156,8 @@ hr {
         @include flexCenter(center, center);
 
         & #depth {
+          width: 70%;
           position: relative;
-          width: 90%;
 
           & #sensorImg,
           #arrow {
@@ -191,7 +192,29 @@ hr {
     }
 
     & #outerCompass {
-      display: none;
+      @include flexCenter(center, center);
+
+      color: white;
+      text-align: center;
+      font-family: Montserrat;
+
+      & #middleCompass {
+        width: 70%;
+      }
+
+      & #compass {
+        position: relative;
+        margin: 5px;
+
+        & #compassImg {
+          opacity: 0.99;
+        }
+
+        & #innerText {
+          font-size: 3rem;
+          @include absoluteCenter();
+        }
+      }
     }
   }
 
@@ -240,24 +263,159 @@ hr {
     }
 
     & #sensorsContainer {
-      display: flex;
       @include flexCenter(center, center);
       align-self: flex-end;
       width: 100%;
       flex-direction: row;
       gap: 20px;
+
       & .sensors {
         width: 30%;
         aspect-ratio: 1/1;
-        background-color: red;
+
+        @include flexCenter(center, center);
+      }
+
+      & .container {
+        @include flexCenter(center, center);
+        font-size: 3rem;
+        font-family: Montserrat;
+        color: white;
+        position: relative;
+
+        & .centerText {
+          @include absoluteCenter();
+        }
+
+        & #batteryRing {
+          --percent: 90;
+        }
+
+        & #tempRing {
+          --percent: 70;
+        }
+
+        & .ring {
+          --diameter: 180;
+          --stroke-width: 10;
+          --pi: 3.1415;
+
+          --diameter-px: calc(var(--diameter) * 1px);
+
+          --radius: calc((var(--diameter) - var(--stroke-width)) / 2);
+          --radius-px: calc(var(--radius) * 1px);
+
+          --circumference: calc(var(--radius) * 2 * var(--pi));
+          --circumference-px: calc(var(--circumference) * 1px);
+
+          --offset: calc(var(--circumference) - var(--percent) / 100 * var(--circumference));
+          --offset-px: calc(var(--offset) * 1px);
+
+          --tw-ring-shadow: none !important; //remove the ring that tailwindcss adds from utilities
+
+          width: var(--diameter-px);
+          height: var(--diameter-px);
+        }
+
+        & .ring circle {
+          stroke-width: var(--stroke-width);
+          fill: transparent;
+          r: var(--radius-px);
+          cx: calc(var(--diameter-px) / 2);
+          cy: calc(var(--diameter-px) / 2);
+        }
+
+        & .ring .progress {
+          stroke-dasharray: var(--circumference-px) var(--circumference-px);
+          stroke-dashoffset: var(--offset-px);
+          transform-origin: 50% 50%;
+          transform: rotate(-90deg);
+          transition: stroke-dashoffset 0.35s;
+        }
       }
     }
   }
 
   & #rightContainer {
+    @include flexCenter(center, flex-start);
     background-color: blue;
     width: 25%;
-
     height: 100%;
+    // padding: 20px;
+    // padding-bottom: 0;
+    padding-top: 10px;
+    // margin-top: 100px;
+
+    & .dotText {
+      @include absoluteCenterX();
+      color: white;
+      font-size: 11px;
+      font-family: Montserrat;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      bottom: -20px;
+    }
+
+    & .dot {
+      position: relative;
+      width: 30px;
+      aspect-ratio: 1/1;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    & #motorFive,
+    #motorSeven {
+      margin-left: 0 !important;
+    }
+
+    & #motorSix,
+    #motorEight {
+      margin-right: 0 !important;
+    }
+
+    & #motorFour,
+    #motorFive {
+      background-color: #1aff91;
+    }
+
+    & #motorOne,
+    #motorTwo,
+    #motorSeven,
+    #motorThree,
+    #motorSix,
+    #motorEight {
+      background-color: #ff0000;
+    }
+
+    & #dotsContainer {
+      @include flexCenter(center, center);
+      flex-direction: column;
+      // background-color: green;
+      width: 100%;
+      aspect-ratio: 1/1;
+
+      & #middleDots {
+        @include flexCenter(center, center);
+        // flex-wrap: wrap;
+        // flex-grow: 1;
+        // width: 100%;
+        // background-color: red;
+
+        & .dotColumn .dot {
+          margin: 40px;
+        }
+      }
+
+      & .sideDots {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        // background-color: blue;
+        width: 85%;
+      }
+    }
   }
 }

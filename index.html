@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <script defer src="./renderer.js"></script>    
     <link href="./public/index.css" rel="stylesheet">
+    <!-- <link href="./Project/Styling/index.scss" rel="stylesheet"> -->
 
   </head>
 
@@ -51,81 +52,123 @@
       <hr>
 
     </header>
-
-
+    
     <div id="container">
-
       <div id="leftContainer">
-
-        <div id="outerDepth">          
+        <div id="outerDepth">              
           <p class="sensorText">
             15
-          </p>
-
+          </p>          
           <div id="middleDepth">
+            <p>test</p>
             <div id="depth">
               <img id="sensorImg" src="./Project/Pictures/Depth Flattened.svg" alt="depth"></img>      
               <div id="arrow"></div>
               <p>7.5 bar</p>      
-            </div>              
+            </div>   
+            <p>test</p>
           </div>
-
           <div id="lowerText">
             <p class="sensorText">0</p>  
             <p class="sensorText">30</p>
           </div>
         </div>
-
         <div id="outerCompass">
-
-
-          <p id="upperCompassText" class="compassText"> test </p>
-            
-
+          <p id="upperCompassText" class="compassText"> 270˚ </p>   
           <div id="middleCompass">
-            <p>test</p>
+            <p>0˚</p>
             <div id="compass">
               <img id="compassImg" src="./Project/Pictures/Compass Flattened.svg" alt="compass">
-              <p id="innerText"></p>
+              <p id="innerText">360˚</p>
             </div>
-            <p>test</p>
+            <p>180˚</p>
           </div>
-
-
-          <p id="lowerCompassText" class="compassText"> test </p>
-
-          
+          <p id="lowerCompassText" class="compassText"> 90˚ </p>          
         </div>
-
-
-
-
       </div>
-
       <div id="middleContainer">
-
         <div id="camContainer">
-
           <div id="textContainer">
             <p>Camera One</p>
             <p>Camera Two</p>
           </div>
-
           <div id="cam"></div>
         </div>
-
         <div id="sensorsContainer">
-          <div class="sensors"></div>
-          <div class="sensors"></div>
+          <div class="sensors">
+            <div class="container">
+              <p class="centerText">90%</p>
+              <svg class="ring" id="batteryRing">
+                <defs>
+                  <linearGradient id="greenGradient" x1="106.498" y1="213.004" x2="106.515" y2="-21.5797" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#19FF91"/>
+                    <stop offset="1" stop-color="#19FF91" stop-opacity="0.28"/>
+                    </linearGradient>
+                  </defs>
+                <circle></circle>
+                <circle class="progress" stroke="url(#greenGradient)">
+                </circle>
+              </svg>
+            </div>
+          </div>
+          <div class="sensors">
+            <div class="container">
+              <p class="centerText">30C˚</p>
+            <svg class="ring" id="tempRing">
+              <defs>
+                <linearGradient id="redGradient" x1="213" y1="106" x2="-41.5" y2="106" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF1919" stop-opacity="0.28"/>
+                  <stop offset="1" stop-color="#19F1FF"/>
+                  </linearGradient>                     
+              </defs>
+              <circle></circle>
+              <circle class="progress" stroke="url(#redGradient)">
+              </circle>
+            </svg>
+          </div>
+          </div>
         </div>
-
       </div>
 
+      <div id="rightContainer">
 
-      
+         <div id="dotsContainer">
 
-      <div id="rightContainer"></div>
+          <div class="sideDots" id="leftDots">
 
+            <div class="dot" id="motorOne">  <p class="dotText">MOTOR 1</p> </div>
+            <div class="dot" id="motorTwo">  <p class="dotText">MOTOR 2</p> </div>
+            
+          </div>
+
+          <div id="middleDots">
+
+            <div class="dotColumn">
+
+              <div class="dot" id="motorFive">  <p class="dotText">MOTOR 5</p> </div>
+              <div class="dot" id="motorSeven">  <p class="dotText">MOTOR 7</p> </div>
+
+            </div>
+
+            <div class="dotColumn">
+              
+              <div class="dot" id="motorSix">  <p class="dotText">MOTOR 6</p> </div>
+              <div class="dot" id="motorEight">  <p class="dotText">MOTOR 8</p> </div>
+
+            </div>
+
+          </div>
+
+          <div class="sideDots" id="rightDots">
+            
+            <div class="dot" id="motorThree">  <p class="dotText">MOTOR 3</p>  </div>
+            <div class="dot" id="motorFour">  <p class="dotText">MOTOR 4</p>  </div>
+
+          </div>
+
+         </div>
+      </div>
     </div>
+    
   </body>
 </html>
