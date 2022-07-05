@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "electron": "^19.0.0",
-    "concurrently": "^7.2.1",
+    "concurrently": "^7.2.2",
     "sass": "^1.52.3",
-    "electron-builder": "^23.0.3",
-    "eslint": "^8.16.0",
+    "electron-builder": "^23.1.0",
+    "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.1.4"
   },
   "build": {
     "appId": "com.gedikuniui.app",
