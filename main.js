@@ -4,7 +4,9 @@
 //! electron squirell startup is only needed for windows
 
 // Modules to control application life and create native browser window
-const { app, ipcMain, BrowserWindow } = require("electron");
+const { app, ipcMain, BrowserWindow, desktopCapturer, dialog, Menu } = require("electron");
+
+//! repalce remote.Something with dialog.Something or Menu.something
 
 // const focus = BrowserWindow.getFocusedWindow();
 const path = require("path");
@@ -17,15 +19,17 @@ function handleMin() {
   BrowserWindow.getFocusedWindow().minimize();
 }
 
-function handleMax() {
-  const focus = BrowserWindow.getFocusedWindow();
+// function handleMax() {
+//   const focus = BrowserWindow.getFocusedWindow();
 
-  if (process.platform !== "darwin") {
-    focus.isMaximized() ? focus.unmaximize() : focus.maximize();
-  } else {
-    focus.isFullScreen() ? focus.setFullScreen(false) : focus.setFullScreen(true);
-  }
-}
+//   if (process.platform !== "darwin") {
+//     focus.isMaximized() ? focus.unmaximize() : focus.maximize();
+//   } else {
+//     focus.isFullScreen() ? focus.setFullScreen(false) : focus.setFullScreen(true);
+//   }
+// }
+
+// app.commandLine.appendSwitch('webrtc-max-cpu-consumption-percentage', '100');
 
 function createWindow() {
   // Create the browser window.
@@ -33,7 +37,7 @@ function createWindow() {
     width: 1280,
     height: 720,
     resizable: false,
-    // maximize: true,
+    maximize: false,
     titleBarStyle: "hidden",
     frame: false,
     webPreferences: {
@@ -49,7 +53,21 @@ function createWindow() {
   mainWindow.loadFile("index.html");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+
+  function getSource() {
+    desktopCapturer.getSources({ types: ["window", "screen"] }).then(async (sources) => {
+      for (const source of sources) {
+        if (source.name.toLowerCase().includes("gedikuniui")) {
+          // if (source.name === "Screen 1") {
+          mainWindow.webContents.send("SET_SOURCE", source.id);
+          return;
+        }
+        console.log(source.name);
+      }
+    });
+  }
+  getSource();
 }
 
 // This method will be called when Electron has finished
@@ -57,7 +75,7 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   ipcMain.on("minimize", handleMin);
-  ipcMain.on("maximize", handleMax);
+  // ipcMain.on("maximize", handleMax);
   createWindow();
 
   app.on("activate", () => {

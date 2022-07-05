@@ -5,11 +5,14 @@
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  src: url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local(""), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot") format("embedded-opentype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff2") format("woff2"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff") format("woff"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.ttf") format("truetype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.svg#Montserrat") format("svg");
-  /* Legacy iOS */
+  src: url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot") format("embedded-opentype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff2") format("woff2"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff") format("woff"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.ttf") format("truetype"), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
+* {
+  user-select: none;
+  text-select: none;
+}
+
 html {
   height: 100vh;
 }
@@ -59,6 +62,7 @@ body #container #leftContainer,
 
 #max:hover path,
 #max {
+  cursor: not-allowed;
   fill: #1a9fff;
 }
 
@@ -173,14 +177,11 @@ hr {
 #container #leftContainer #outerDepth #middleDepth #depth #arrow {
   position: absolute;
   right: 50%;
-  top: 45.45%;
+  top: 45%;
   transform-origin: center right;
-  transform: rotate(0deg);
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 115px solid white;
-  width: 48%;
-  height: 10px;
 }
 #container #leftContainer #outerCompass {
   display: flex;
@@ -386,4 +387,6 @@ hr {
   justify-content: space-between;
   flex-direction: row;
   width: 85%;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */

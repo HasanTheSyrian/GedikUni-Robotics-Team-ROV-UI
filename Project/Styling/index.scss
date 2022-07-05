@@ -14,6 +14,11 @@
   src: local(""), url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.eot") format("embedded-opentype"), /* IE6-IE8 */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.woff") format("woff"), /* Modern Browsers */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */ url("../Project/Fonts/Montserrat/montserrat-v24-latin-regular.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
 
+* {
+  user-select: none;
+  text-select: none;
+}
+
 html {
   height: 100vh;
 }
@@ -66,6 +71,7 @@ body #container #leftContainer,
 
 #max:hover path,
 #max {
+  cursor: not-allowed;
   fill: #1a9fff;
 }
 
@@ -176,16 +182,16 @@ hr {
           & #arrow {
             position: absolute;
             right: 50%;
-            top: 45.45%;
+            top: 45%;
 
             transform-origin: center right;
-            transform: rotate(0deg);
+            // transform: rotate(270deg);
 
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
             border-right: 115px solid white;
-            width: 48%;
-            height: 10px;
+            // width: 48%;
+            // height: 10px;
           }
         }
       }
