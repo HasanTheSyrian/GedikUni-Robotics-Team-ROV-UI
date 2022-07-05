@@ -1,4 +1,4 @@
-// This file is required by the index.html file and will
+// This file is rvequired by the index.html file and will
 // be executed in the renderer process for that window.
 // No Node.js APIs are available in this process because
 // `nodeIntegration` is turned off. Use `preload.js` to
@@ -9,6 +9,22 @@ const exitbtn = document.getElementById("exit");
 const maxbtn = document.getElementById("max");
 const minbtn = document.getElementById("min");
 const bar = document.getElementById("titleBar");
+const time = document.getElementById("time");
+
+function formatAMPM(date) {
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let ampm = hours >= 12 ? "PM" : "AM";
+  hours %= 12;
+  hours = hours || 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  let strTime = `${hours}:${minutes} ${ampm}`;
+  return strTime;
+}
+
+setInterval(() => {
+  time.innerHTML = formatAMPM(new Date()); // set time every 1 second
+}, 1000);
 
 // navigator.platform is deprecated but the rest are not
 function isMac() {
@@ -35,7 +51,6 @@ maxbtn.addEventListener("click", (e) => {
   e.preventDefault();
   const win = window.electronAPI;
   win.maximize();
-  //   win.isMaximized() ? win.unmaximize() : win.maximize();
 });
 
 minbtn.addEventListener("click", (e) => {

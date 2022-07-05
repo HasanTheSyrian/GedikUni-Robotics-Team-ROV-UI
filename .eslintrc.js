@@ -30,6 +30,7 @@ module.exports = {
     "func-names": "off",
     "no-plusplus": "off",
     "prefer-const": "off",
-    "key-spacing": "off"
+    "key-spacing": "off",
+    "object-curly-newline": "off"
   },
 };
